@@ -1,0 +1,9 @@
+{
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_SANITY_PROJECT_ID": "jx525uqh",
+    "NEXT_PUBLIC_SANITY_DATASET": "production",
+    "NEXT_PUBLIC_SUPABASE_URL": "https://fnveezmcftoczrboflqu.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_Zp2vFi9Pg8AJ4qBh2rf13g_pW5h2_6D"
+  }
+}
