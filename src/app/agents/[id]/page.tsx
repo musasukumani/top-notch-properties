@@ -1,15 +1,12 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Phone, Mail, Star, ArrowLeft, Building2 } from "lucide-react";
-import { getAgentById, getAgents, getAllProperties } from "@/sanity/lib/queries";
+import { getAgentById, getAllProperties } from "@/sanity/lib/queries";
 import PropertyCard from "@/components/ui/PropertyCard";
-
-export async function generateStaticParams() {
-  const agents = await getAgents();
-  return agents.map((a) => ({ id: a.id }));
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
