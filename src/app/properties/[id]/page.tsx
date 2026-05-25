@@ -16,6 +16,8 @@ import {
   Share2,
 } from "lucide-react";
 import { getAllProperties, getPropertyById, getAgents } from "@/sanity/lib/queries";
+
+export const dynamic = "force-dynamic";
 import { formatArea } from "@/lib/utils";
 import PropertyCard from "@/components/ui/PropertyCard";
 import StarRating from "@/components/ui/StarRating";
@@ -37,14 +39,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  try {
-    const properties = await getAllProperties();
-    return properties.map((p) => ({ id: p.id }));
-  } catch {
-    return [];
-  }
-}
 
 export default async function PropertyDetailPage({ params }: Props) {
   const { id } = await params;

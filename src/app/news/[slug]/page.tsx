@@ -5,14 +5,8 @@ import { notFound } from "next/navigation";
 import { CalendarDays, ArrowLeft, User } from "lucide-react";
 import { getBlogPostBySlug, getBlogPosts } from "@/sanity/lib/queries";
 
-export async function generateStaticParams() {
-  try {
-    const posts = await getBlogPosts();
-    return posts.map((p) => ({ slug: p.slug }));
-  } catch {
-    return [];
-  }
-}
+export const dynamic = "force-dynamic";
+
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
