@@ -38,8 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const properties = await getAllProperties();
-  return properties.map((p) => ({ id: p.id }));
+  try {
+    const properties = await getAllProperties();
+    return properties.map((p) => ({ id: p.id }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function PropertyDetailPage({ params }: Props) {

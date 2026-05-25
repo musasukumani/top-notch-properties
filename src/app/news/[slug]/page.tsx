@@ -6,8 +6,12 @@ import { CalendarDays, ArrowLeft, User } from "lucide-react";
 import { getBlogPostBySlug, getBlogPosts } from "@/sanity/lib/queries";
 
 export async function generateStaticParams() {
-  const posts = await getBlogPosts();
-  return posts.map((p) => ({ slug: p.slug }));
+  try {
+    const posts = await getBlogPosts();
+    return posts.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
